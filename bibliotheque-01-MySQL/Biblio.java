@@ -74,8 +74,8 @@ public class Biblio {
     }
 
     /**
-      * Traitement des transactions de la biblioth�que
-      */
+     * Traitement des transactions de la biblioth�que
+     */
     static void traiterTransactions(BufferedReader reader) throws Exception {
         afficherAide();
         String transaction = lireTransaction(reader);
@@ -83,27 +83,29 @@ public class Biblio {
             /* d�coupage de la transaction en mots*/
             StringTokenizer tokenizer = new StringTokenizer(transaction,
                 " ");
-            if(tokenizer.hasMoreTokens())
+            if(tokenizer.hasMoreTokens()) {
                 executerTransaction(tokenizer);
+            }
             transaction = lireTransaction(reader);
         }
     }
 
     /**
-      * Lecture d'une transaction
-      */
+     * Lecture d'une transaction
+     */
     static String lireTransaction(BufferedReader reader) throws IOException {
         System.out.print("> ");
         String transaction = reader.readLine();
         /* echo si lecture dans un fichier */
-        if(!lectureAuClavier)
+        if(!lectureAuClavier) {
             System.out.println(transaction);
+        }
         return transaction;
     }
 
     /**
-      * D�codage et traitement d'une transaction
-      */
+     * D�codage et traitement d'une transaction
+     */
     static void executerTransaction(StringTokenizer tokenizer) throws Exception {
         try {
             String command = tokenizer.nextToken();
@@ -111,92 +113,53 @@ public class Biblio {
             /* ******************* */
             /*         HELP        */
             /* ******************* */
-            if("aide".startsWith(command))
+            if("aide".startsWith(command)) {
                 afficherAide();
-            /* ******************* */
-            /* ACQUERIR            */
-            /* ******************* */
-            else if("acquerir".startsWith(command))
+            } else if("acquerir".startsWith(command)) {
                 gestionBiblio.gestionLivre.acquerir(readInt(tokenizer) /* idLivre */,
                     readString(tokenizer) /* titre */,
                     readString(tokenizer) /* auteur */,
                     readDate(tokenizer) /* dateAcquisition */);
-            /* ******************* */
-            /* VENDRE              */
-            /* ******************* */
-            else if("vendre".startsWith(command))
+            } else if("vendre".startsWith(command)) {
                 gestionBiblio.gestionLivre.vendre(readInt(tokenizer) /* idLivre */);
-            /* ********************* */
-            /* PRETER                */
-            /* ********************* */
-            else if("preter".startsWith(command))
+            } else if("preter".startsWith(command)) {
                 gestionBiblio.gestionPret.preter(readInt(tokenizer) /* idLivre */,
                     readInt(tokenizer) /* idMembre */,
                     readDate(tokenizer) /* dateEmprunt */);
-            /* ******************* */
-            /* RENOUVELER          */
-            /* ******************* */
-            else if("renouveler".startsWith(command))
+            } else if("renouveler".startsWith(command)) {
                 gestionBiblio.gestionPret.renouveler(readInt(tokenizer) /* idLivre */,
                     readDate(tokenizer) /* dateRenouvellement */);
-            /* ********************* */
-            /* RETOURNER             */
-            /* ********************* */
-            else if("retourner".startsWith(command))
+            } else if("retourner".startsWith(command)) {
                 gestionBiblio.gestionPret.retourner(readInt(tokenizer) /* idLivre */,
                     readDate(tokenizer) /* dateRetour */);
-            /* ********************* */
-            /* INSCRIRE              */
-            /* ********************* */
-            else if("inscrire".startsWith(command))
+            } else if("inscrire".startsWith(command)) {
                 gestionBiblio.gestionMembre.inscrire(readInt(tokenizer) /* idMembre */,
                     readString(tokenizer) /* nom */,
                     readLong(tokenizer) /* tel */,
                     readInt(tokenizer) /* limitePret */);
-            /* ******************* */
-            /* DESINSCRIRE         */
-            /* ******************* */
-            else if("desinscrire".startsWith(command))
+            } else if("desinscrire".startsWith(command)) {
                 gestionBiblio.gestionMembre.desinscrire(readInt(tokenizer) /* idMembre */);
-            /* ******************* */
-            /* RESERVER            */
-            /* ******************* */
-            else if("reserver".startsWith(command))
+            } else if("reserver".startsWith(command)) {
                 gestionBiblio.gestionReservation.reserver(readInt(tokenizer) /* idReservation */,
                     readInt(tokenizer) /* idLivre */,
                     readInt(tokenizer) /* idMembre */,
                     readDate(tokenizer) /* dateReservation */);
-            /* ******************* */
-            /* PRENDRE RESERVATION */
-            /* ******************* */
-            else if("prendreRes".startsWith(command))
+            } else if("prendreRes".startsWith(command)) {
                 gestionBiblio.gestionReservation.prendreRes(readInt(tokenizer) /* idReservation */,
                     readDate(tokenizer) /* dateReservation */);
-            /* ******************* */
-            /* ANNULER RESERVATION */
-            /* ******************* */
-            else if("annulerRes".startsWith(command))
+            } else if("annulerRes".startsWith(command)) {
                 gestionBiblio.gestionReservation.annulerRes(readInt(tokenizer) /* idReservation */);
-            /* *********************           */
-            /* AFFICHER LA LISTE DE tous les livres  */
-            /* *********************           */
-            else if("listerLivres".startsWith(command))
+            } else if("listerLivres".startsWith(command)) {
                 gestionBiblio.gestionInterrogation.listerLivres();
-            /* *********************           */
-            /* AFFICHER LA LISTE DES LIVRES DONT LE TITRE CONTIENT UN MOT DONNE   */
-            /* *********************           */
-            else if("listerLivresTitre".startsWith(command))
+            } else if("listerLivresTitre".startsWith(command)) {
                 gestionBiblio.gestionInterrogation.listerLivresTitre(readString(tokenizer) /* mot */);
-            /* *********************           */
-            /* commentaire : ligne d�butant par --   */
-            /* *********************           */
-            else if("--".startsWith(command)) {
+            } else if("--".startsWith(command)) {
             }// ne rien faire; c'est un commentaire
             /* ***********************   */
             /* TRANSACTION NON RECONNUEE */
-            /* ***********************   */
-            else
+            /* ***********************   */else {
                 System.out.println("  Transactions non reconnue.  Essayer \"aide\"");
+            }
         } catch(BiblioException e) {
             System.out.println("** "
                 + e.toString());
@@ -234,35 +197,39 @@ public class Biblio {
      */
     static boolean finTransaction(String transaction) {
         /* fin de fichier atteinte */
-        if(transaction == null)
+        if(transaction == null) {
             return true;
+        }
 
         StringTokenizer tokenizer = new StringTokenizer(transaction,
             " ");
 
         /* ligne ne contenant que des espaces */
-        if(!tokenizer.hasMoreTokens())
+        if(!tokenizer.hasMoreTokens()) {
             return false;
+        }
 
         /* commande "exit" */
         String commande = tokenizer.nextToken();
-        if(commande.equals("exit"))
+        if(commande.equals("exit")) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
     /** lecture d'une cha�ne de caract�res de la transaction entr�e � l'�cran */
     static String readString(StringTokenizer tokenizer) throws BiblioException {
-        if(tokenizer.hasMoreElements())
+        if(tokenizer.hasMoreElements()) {
             return tokenizer.nextToken();
-        else
+        } else {
             throw new BiblioException("autre param�tre attendu");
+        }
     }
 
     /**
-      * lecture d'un int java de la transaction entr�e � l'�cran
-      */
+     * lecture d'un int java de la transaction entr�e � l'�cran
+     */
     static int readInt(StringTokenizer tokenizer) throws BiblioException {
         if(tokenizer.hasMoreElements()) {
             String token = tokenizer.nextToken();
@@ -273,13 +240,14 @@ public class Biblio {
                     + token
                     + "\"");
             }
-        } else
+        } else {
             throw new BiblioException("autre param�tre attendu");
+        }
     }
 
     /**
-      * lecture d'un long java de la transaction entr�e � l'�cran
-      */
+     * lecture d'un long java de la transaction entr�e � l'�cran
+     */
     static long readLong(StringTokenizer tokenizer) throws BiblioException {
         if(tokenizer.hasMoreElements()) {
             String token = tokenizer.nextToken();
@@ -290,13 +258,14 @@ public class Biblio {
                     + token
                     + "\"");
             }
-        } else
+        } else {
             throw new BiblioException("autre param�tre attendu");
+        }
     }
 
     /**
-      * lecture d'une date en format YYYY-MM-DD
-      */
+     * lecture d'une date en format YYYY-MM-DD
+     */
     static String readDate(StringTokenizer tokenizer) throws BiblioException {
         if(tokenizer.hasMoreElements()) {
             String token = tokenizer.nextToken();
@@ -308,7 +277,8 @@ public class Biblio {
                     + token
                     + "\"");
             }
-        } else
+        } else {
             throw new BiblioException("autre param�tre attendu");
+        }
     }
 }//class
