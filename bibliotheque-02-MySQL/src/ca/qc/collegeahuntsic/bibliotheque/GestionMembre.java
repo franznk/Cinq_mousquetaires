@@ -4,17 +4,17 @@ package ca.qc.collegeahuntsic.bibliotheque;
 import java.sql.SQLException;
 
 /**
- * Gestion des transactions de reli�es � la cr�ation et
- * suppresion de membres dans une biblioth�que.
+ * Gestion des transactions de reliées à la création et
+ * suppresion de membres dans une bibliothèque.
  *
- * Ce programme permet de g�rer les transaction reli�es � la
- * cr�ation et suppresion de membres.
+ * Ce programme permet de gérer les transaction reliées à la
+ * création et suppresion de membres.
  *
- * Pr�-condition
- *   la base de donn�es de la biblioth�que doit exister
+ * Pré-condition
+ *   la base de données de la bibliothèque doit exister
  *
  * Post-condition
- *   le programme effectue les maj associ�es � chaque
+ *   le programme effectue les maj associées à chaque
  *   transaction
  * </pre>
  */
@@ -49,7 +49,7 @@ public class GestionMembre {
         BiblioException,
         Exception {
         try {
-            /* V�rifie si le membre existe d�ja */
+            /* Vérifie si le membre existe déja */
             if(this.membre.existe(idMembre)) {
                 throw new BiblioException("Membre existe deja: "
                     + idMembre);
@@ -74,7 +74,7 @@ public class GestionMembre {
     BiblioException,
     Exception {
         try {
-            /* V�rifie si le membre existe et son nombre de pret en cours */
+            /* Vérifie si le membre existe et son nombre de pret en cours */
             TupleMembre tupleMembre = this.membre.getMembre(idMembre);
             if(tupleMembre == null) {
                 throw new BiblioException("Membre inexistant: "
@@ -88,7 +88,7 @@ public class GestionMembre {
             if(this.reservation.getReservationMembre(idMembre) != null) {
                 throw new BiblioException("Membre "
                     + idMembre
-                    + " a des r�servations");
+                    + " a des réservations");
             }
 
             /* Suppression du membre */

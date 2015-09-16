@@ -6,18 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Gestion des transactions d'interrogation dans une biblioth�que.
+ * Gestion des transactions d'interrogation dans une bibliothèque.
  *
  * <pre>
  *
  *   Ce programme permet de faire diverses interrogations
- *   sur l'�tat de la biblioth�que.
+ *   sur l'état de la bibliothèque.
  *
- *   Pr�-condition
- *     la base de donn�es de la biblioth�que doit exister
+ *   Pré-condition
+ *     la base de données de la bibliothèque doit exister
  *
  *   Post-condition
- *     le programme effectue les maj associ�es � chaque
+ *     le programme effectue les maj associées à chaque
  *     transaction
  *
  *

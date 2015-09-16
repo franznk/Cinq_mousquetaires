@@ -4,17 +4,17 @@ package ca.qc.collegeahuntsic.bibliotheque;
 import java.sql.SQLException;
 
 /**
- * Gestion des transactions de reli�es � la cr�ation et
- * suppresion de livres dans une biblioth�que.
+ * Gestion des transactions de reliées é la création et
+ * suppresion de livres dans une bibliothèque.
  *
- * Ce programme permet de g�rer les transaction reli�es � la
- * cr�ation et suppresion de livres.
+ * Ce programme permet de gérer les transaction reliées à la
+ * création et suppresion de livres.
  *
- * Pr�-condition
- *   la base de donn�es de la biblioth�que doit exister
+ * Pré-condition
+ *   la base de données de la bibliothèque doit exister
  *
  * Post-condition
- *   le programme effectue les maj associ�es � chaque
+ *   le programme effectue les maj associées à chaque
  *   transaction
  * </pre>
  */
@@ -37,8 +37,8 @@ public class GestionLivre {
     }
 
     /**
-     * Ajout d'un nouveau livre dans la base de donn�es.
-     * S'il existe deja, une exception est lev�e.
+     * Ajout d'un nouveau livre dans la base de données.
+     * S'il existe deja, une exception est levée.
      */
     public void acquerir(int idLivre,
         String titre,
@@ -47,7 +47,7 @@ public class GestionLivre {
         BiblioException,
         Exception {
         try {
-            /* V�rifie si le livre existe d�ja */
+            /* Vérifie si le livre existe déja */
             if(this.livre.existe(idLivre)) {
                 throw new BiblioException("Livre existe deja: "
                     + idLivre);
@@ -87,7 +87,7 @@ public class GestionLivre {
             if(this.reservation.getReservationLivre(idLivre) != null) {
                 throw new BiblioException("Livre "
                     + idLivre
-                    + " r�serv� ");
+                    + " réservé ");
             }
 
             /* Suppression du livre. */
