@@ -37,8 +37,6 @@ import java.util.StringTokenizer;
 public class Biblio {
     private static GestionBibliotheque gestionBiblio;
 
-    private static boolean lectureAuClavier;
-
     /**
      * Ouverture de la BD,
      * traitement des transactions et
@@ -94,10 +92,11 @@ public class Biblio {
      * Lecture d'une transaction
      */
     static String lireTransaction(BufferedReader reader) throws IOException {
-        System.out.print("> ");
+
         String transaction = reader.readLine();
-        /* echo si lecture dans un fichier */
-        if(!lectureAuClavier) {
+        if(transaction != null) {
+            System.out.print("> ");
+            /* echo si lecture dans un fichier */
             System.out.println(transaction);
         }
         return transaction;
