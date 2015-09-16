@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" additionalparam="-encoding UTF-8 -docencoding UTF-8 -charset UTF-8 -Xdoclint:none " author="true" classpath="mysql-connector-java-5.1.35-bin.jar" destdir="javadoc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="1.8" sourcefiles="GestionMembre.java,Connexion.java,Membre.java,CreerBD.java,Livre.java,GestionPret.java,GestionInterrogation.java,Reservation.java,FormatDate.java,GestionBibliotheque.java,GestionLivre.java,TupleReservation.java,Biblio.java,BiblioException.java,GestionReservation.java,TupleLivre.java,TupleMembre.java" sourcepath="." splitindex="true" use="true" version="true">
+            <link href="https://docs.oracle.com/javase/8/docs/api/"/>
+            <link href="file:/M:/420-113-AH/bibliotheque-02-MySQL/javadoc/"/>
+        </javadoc>
+    </target>
+</project>
