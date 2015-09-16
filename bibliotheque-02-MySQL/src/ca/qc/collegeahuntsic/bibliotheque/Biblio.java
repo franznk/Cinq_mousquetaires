@@ -55,7 +55,6 @@ public class Biblio {
         try {
             // ouverture du fichier de transactions
             // s'il est sp�cifi� comme argument
-            lectureAuClavier = true;
             InputStream sourceTransaction = Biblio.class.getResourceAsStream("/"
                 + argv[4]);
             try(
