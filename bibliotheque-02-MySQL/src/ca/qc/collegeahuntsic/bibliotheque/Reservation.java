@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Permet d'effectuer les acc�s � la table reservation.
+ * Permet d'effectuer les accès à la table reservation.
  *<pre>
  *
- * Cette classe g�re tous les acc�s � la table reservation.
+ * Cette classe g�re tous les accès à la table reservation.
  *
  *</pre>
  */
@@ -47,7 +47,7 @@ public class Reservation {
     }
 
     /**
-     * Retourner la connexion associ�e.
+     * Retourner la connexion associée.
      */
     public Connexion getConnexion() {
 
@@ -89,7 +89,7 @@ public class Reservation {
     }
 
     /**
-     * Lecture de la premi�re reservation d'un livre.
+     * Lecture de la première reservation d'un livre.
      */
     public TupleReservation getReservationLivre(int idLivre) throws SQLException {
 
@@ -110,7 +110,7 @@ public class Reservation {
     }
 
     /**
-     * Lecture de la premi�re reservation d'un livre.
+     * Lecture de la première reservation d'un livre.
      */
     public TupleReservation getReservationMembre(int idMembre) throws SQLException {
 
@@ -131,7 +131,7 @@ public class Reservation {
     }
 
     /**
-     * R�servation d'un livre.
+     * Réservation d'un livre.
      */
     public void reserver(int idReservation,
         int idLivre,

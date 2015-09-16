@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Permet d'effectuer les acc�s � la table membre.
- * Cette classe g�re tous les acc�s � la table membre.
+ * Permet d'effectuer les accès à la table membre.
+ * Cette classe gère tous les accès à la table membre.
  *
  *</pre>
  */
@@ -27,7 +27,7 @@ public class Membre {
     private Connexion cx;
 
     /**
-     * Creation d'une instance. Pr�compilation d'�nonc�s SQL.
+     * Creation d'une instance. Précompilation d'énoncés SQL.
      */
     public Membre(Connexion cx) throws SQLException {
         this.cx = cx;
@@ -40,7 +40,7 @@ public class Membre {
     }
 
     /**
-     * Retourner la connexion associ�e.
+     * Retourner la connexion associée.
      */
     public Connexion getConnexion() {
 
@@ -48,7 +48,7 @@ public class Membre {
     }
 
     /**
-     * Verifie si un membre existe.
+     * Vérifie si un membre éxiste.
      */
     public boolean existe(int idMembre) throws SQLException {
         this.stmtExiste.setInt(1,
