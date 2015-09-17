@@ -2,7 +2,7 @@
 package ca.qc.collegeahuntsic.bibliotheque;
 
 /**
- * Permet de repr�senter un tuple de la table membre.
+ * Permet de représenter un tuple de la table membre.
  *
  */
 

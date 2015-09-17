@@ -4,7 +4,7 @@ package ca.qc.collegeahuntsic.bibliotheque;
 import java.sql.Date;
 
 /**
- * Permet de repr�senter un tuple de la table membre.
+ * Permet de représenter un tuple de la table membre.
  *
  */
 

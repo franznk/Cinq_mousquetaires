@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 /**
- * Permet d'effectuer les acc�s � la table livre.
+ * Permet d'effectuer les accès à la table livre.
  */
 
 public class Livre {
@@ -24,7 +24,7 @@ public class Livre {
     private Connexion cx;
 
     /**
-     * Creation d'une instance. Des �nonc�s SQL pour chaque requ�te sont pr�compil�s.
+     * Creation d'une instance. Des énoncés SQL pour chaque requête sont précompilés.
      */
     public Livre(Connexion cx) throws SQLException {
 
@@ -39,7 +39,7 @@ public class Livre {
     }
 
     /**
-     * Retourner la connexion associ�e.
+     * Retourner la connexion associée.
      */
     public Connexion getConnexion() {
 
@@ -117,7 +117,7 @@ public class Livre {
     }
 
     /**
-     * Rendre le livre disponible (non-pr�t�)
+     * Rendre le livre disponible (non-prêté)
      */
     public int retourner(int idLivre) throws SQLException {
         /* Enregistrement du pret. */
