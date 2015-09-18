@@ -9,6 +9,6 @@ package ca.qc.collegeahuntsic.bibliotheque.service;
  *
  * @author Franz Nkezimana
  */
-public class SERVICE {
+public class Service {
 
 }
