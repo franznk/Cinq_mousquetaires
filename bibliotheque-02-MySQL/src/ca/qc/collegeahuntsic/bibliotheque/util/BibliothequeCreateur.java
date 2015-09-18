@@ -1,7 +1,17 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.util;
 
 import java.sql.SQLException;
+import ca.qc.collegeahuntsic.bibliotheque.GestionInterrogation;
+import ca.qc.collegeahuntsic.bibliotheque.dao.LivreDAO;
+import ca.qc.collegeahuntsic.bibliotheque.dao.MembreDAO;
+import ca.qc.collegeahuntsic.bibliotheque.dao.ReservationDAO;
+import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
+import ca.qc.collegeahuntsic.bibliotheque.exception.BiblioException;
+import ca.qc.collegeahuntsic.bibliotheque.service.LivreService;
+import ca.qc.collegeahuntsic.bibliotheque.service.MembreService;
+import ca.qc.collegeahuntsic.bibliotheque.service.PretService;
+import ca.qc.collegeahuntsic.bibliotheque.service.ReservationService;
 
 /**
  * Système de gestion d'une bibliothèque
@@ -20,22 +30,22 @@ import java.sql.SQLException;
  *   transaction
  * </pre>
  */
-public class GestionBibliotheque {
+public class BibliothequeCreateur {
     public Connexion cx;
 
-    public Livre livre;
+    public LivreDAO livre;
 
-    public Membre membre;
+    public MembreDAO membre;
 
-    public Reservation reservation;
+    public ReservationDAO reservation;
 
-    public GestionLivre gestionLivre;
+    public LivreService gestionLivre;
 
-    public GestionMembre gestionMembre;
+    public MembreService gestionMembre;
 
-    public GestionPret gestionPret;
+    public PretService gestionPret;
 
-    public GestionReservation gestionReservation;
+    public ReservationService gestionReservation;
 
     public GestionInterrogation gestionInterrogation;
 
@@ -50,7 +60,7 @@ public class GestionBibliotheque {
      * @param password mot de passe pour le user id
      *</pre>
      */
-    public GestionBibliotheque(String serveur,
+    public BibliothequeCreateur(String serveur,
         String bd,
         String user,
         String password) throws BiblioException,
@@ -60,17 +70,17 @@ public class GestionBibliotheque {
             bd,
             user,
             password);
-        this.livre = new Livre(this.cx);
-        this.membre = new Membre(this.cx);
-        this.reservation = new Reservation(this.cx);
-        this.gestionLivre = new GestionLivre(this.livre,
+        this.livre = new LivreDAO(this.cx);
+        this.membre = new MembreDAO(this.cx);
+        this.reservation = new ReservationDAO(this.cx);
+        this.gestionLivre = new LivreService(this.livre,
             this.reservation);
-        this.gestionMembre = new GestionMembre(this.membre,
+        this.gestionMembre = new MembreService(this.membre,
             this.reservation);
-        this.gestionPret = new GestionPret(this.livre,
+        this.gestionPret = new PretService(this.livre,
             this.membre,
             this.reservation);
-        this.gestionReservation = new GestionReservation(this.livre,
+        this.gestionReservation = new ReservationService(this.livre,
             this.membre,
             this.reservation);
         this.gestionInterrogation = new GestionInterrogation(this.cx);

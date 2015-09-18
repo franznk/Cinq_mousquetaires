@@ -4,6 +4,7 @@ package ca.qc.collegeahuntsic.bibliotheque;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
 
 /**
  * Gestion des transactions d'interrogation dans une bibliothèque.

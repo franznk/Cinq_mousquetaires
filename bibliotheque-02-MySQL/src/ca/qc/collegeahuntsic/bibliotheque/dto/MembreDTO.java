@@ -1,12 +1,12 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.dto;
 
 /**
  * Permet de représenter un tuple de la table membre.
  *
  */
 
-public class TupleMembre {
+public class MembreDTO {
 
     public int idMembre;
 

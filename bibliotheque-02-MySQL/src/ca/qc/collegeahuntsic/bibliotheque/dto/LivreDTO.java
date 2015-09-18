@@ -1,5 +1,5 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.dto;
 
 import java.sql.Date;
 
@@ -8,7 +8,7 @@ import java.sql.Date;
  *
  */
 
-public class TupleLivre {
+public class LivreDTO {
 
     public int idLivre;
 

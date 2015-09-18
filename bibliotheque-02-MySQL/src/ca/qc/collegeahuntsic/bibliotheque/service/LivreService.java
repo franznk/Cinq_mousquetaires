@@ -1,7 +1,12 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.service;
 
 import java.sql.SQLException;
+import ca.qc.collegeahuntsic.bibliotheque.dao.LivreDAO;
+import ca.qc.collegeahuntsic.bibliotheque.dao.ReservationDAO;
+import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
+import ca.qc.collegeahuntsic.bibliotheque.dto.LivreDTO;
+import ca.qc.collegeahuntsic.bibliotheque.exception.BiblioException;
 
 /**
  * Gestion des transactions de reliées é la création et
@@ -18,19 +23,19 @@ import java.sql.SQLException;
  *   transaction
  * </pre>
  */
-public class GestionLivre {
+public class LivreService {
 
-    private Livre livre;
+    private LivreDAO livre;
 
-    private Reservation reservation;
+    private ReservationDAO reservation;
 
     private Connexion cx;
 
     /**
      * Creation d'une instance
      */
-    public GestionLivre(Livre livre,
-        Reservation reservation) {
+    public LivreService(LivreDAO livre,
+        ReservationDAO reservation) {
         this.cx = livre.getConnexion();
         this.livre = livre;
         this.reservation = reservation;
@@ -73,7 +78,7 @@ public class GestionLivre {
     BiblioException,
     Exception {
         try {
-            TupleLivre tupleLivre = this.livre.getLivre(idLivre);
+            LivreDTO tupleLivre = this.livre.getLivre(idLivre);
             if(tupleLivre == null) {
                 throw new BiblioException("Livre inexistant: "
                     + idLivre);

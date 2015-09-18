@@ -1,8 +1,9 @@
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.util;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Statement;
+import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
 
 /**
  * <pre>

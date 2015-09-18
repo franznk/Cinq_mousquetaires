@@ -1,5 +1,5 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.exception;
 
 /**
  * L'exception BiblioException est levée lorsqu'une transaction est inadéquate.

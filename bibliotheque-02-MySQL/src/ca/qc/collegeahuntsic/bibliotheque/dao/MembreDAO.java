@@ -1,9 +1,11 @@
 
-package ca.qc.collegeahuntsic.bibliotheque;
+package ca.qc.collegeahuntsic.bibliotheque.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
+import ca.qc.collegeahuntsic.bibliotheque.dto.MembreDTO;
 
 /**
  * Permet d'effectuer les accès à la table membre.
@@ -12,7 +14,7 @@ import java.sql.SQLException;
  *</pre>
  */
 
-public class Membre {
+public class MembreDAO {
 
     private PreparedStatement stmtExiste;
 
@@ -29,7 +31,7 @@ public class Membre {
     /**
      * Creation d'une instance. Précompilation d'énoncés SQL.
      */
-    public Membre(Connexion cx) throws SQLException {
+    public MembreDAO(Connexion cx) throws SQLException {
         this.cx = cx;
         this.stmtExiste = cx.getConnection().prepareStatement("select idMembre, nom, telephone, limitePret, nbpret from membre where idmembre = ?");
         this.stmtInsert = cx.getConnection().prepareStatement("insert into membre (idmembre, nom, telephone, limitepret, nbpret) "
@@ -62,12 +64,12 @@ public class Membre {
     /**
      * Lecture d'un membre.
      */
-    public TupleMembre getMembre(int idMembre) throws SQLException {
+    public MembreDTO getMembre(int idMembre) throws SQLException {
         this.stmtExiste.setInt(1,
             idMembre);
         ResultSet rset = this.stmtExiste.executeQuery();
         if(rset.next()) {
-            TupleMembre tupleMembre = new TupleMembre();
+            MembreDTO tupleMembre = new MembreDTO();
             tupleMembre.idMembre = idMembre;
             tupleMembre.nom = rset.getString(2);
             tupleMembre.telephone = rset.getLong(3);
