@@ -16,7 +16,7 @@ import ca.qc.collegeahuntsic.bibliotheque.db.Connexion;
  *            3- mot de passe pour le user id
  * </pre>
  */
-class CreerBD {
+class BDCreateur {
 	public static void main(String args[]) throws Exception, SQLException,
 	IOException {
 
