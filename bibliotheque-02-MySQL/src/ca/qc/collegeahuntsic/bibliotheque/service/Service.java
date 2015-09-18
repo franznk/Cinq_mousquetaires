@@ -4,11 +4,18 @@
 
 package ca.qc.collegeahuntsic.bibliotheque.service;
 
+import java.io.Serializable;
+
 /**
  * TODO Auto-generated class javadoc
  *
  * @author Franz Nkezimana
  */
-public class Service {
+public class Service implements Serializable {
+
+    /**
+     * TODO Auto-generated field javadoc
+     */
+    private static final long serialVersionUID = 1L;
 
 }
